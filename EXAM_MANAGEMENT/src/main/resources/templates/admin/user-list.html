@@ -33,6 +33,7 @@
                             <i class="fa-sharp fa-solid fa-magnifying-glass"></i>Search
                         </button>
                     </span>
+
                 </div>
             </form>
 
@@ -68,6 +69,9 @@
                 </tr>
                 </tbody>
             </table>
+            <div th:if="${searchResult}">
+                <a class="btn btn-sm btn-info mb-3" href="/admin/show-users">Back</a>
+            </div>
 <!--            Pagination starts from Here&ndash;&gt;-->
             <!--<nav aria-label="Page navigation example">
                 <ul class="pagination">

@@ -318,25 +318,31 @@ public class AdminController {
         String optionName = request.getParameter("optionName").trim();
         String optionValue = request.getParameter("optionValue").trim();
         List<User> userList = new ArrayList<>();
+        boolean searchResult = false; // Initialize searchResult as false
 
         switch (optionName) {
             case "name": {
                 userList = userRepository.findUserByName(optionValue);
+                searchResult = !userList.isEmpty(); // Update searchResult based on the search result
                 System.out.println("userList : " + userList);
             }
             break;
             case "email": {
-//                userList = userRepository.findByEmail(optionValue);
+                // userList = userRepository.findByEmail(optionValue);
+                // Perform the search logic for email if required
                 System.out.println("userList : " + userList);
-
             }
             break;
             default:
                 break;
         }
+
         view.addObject("userList", userList);
+        view.addObject("searchResult", searchResult);
+
         return view;
     }
+
 
     /*Handler for getting exam page based on category level and set number*/
     @GetMapping("/mcq/exam12/{userId}")
