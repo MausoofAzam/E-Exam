@@ -45,6 +45,8 @@ const toggleSidebar = () => {
 
     // Submit the form with the stored selected options when the last page is reached
     if (document.querySelector(".submit")) {
+     try{
+      console.log("submit function is being called")
       let selectedOptions = JSON.parse(sessionStorage.getItem("selectedOptions")) || {};
 
       for (let questionId in selectedOptions) {
@@ -61,6 +63,10 @@ const toggleSidebar = () => {
         input.name = "questionIds[]";
         input.value = questionId;
         document.getElementById("question-form").appendChild(input);
+      }
+      } catch(e){
+      console.log("error while submitting data")
+      console.log(e)
       }
     }
 
@@ -80,32 +86,38 @@ const toggleSidebar = () => {
     setSelectedOptions();
 
 
-function startTimer(){
-//$(document).ready(function () {
-//    $('#user-link-testing')[0].click();
-//});
-var link = document.getElementById('user-link-testing');
-for(var i = 0; i < 50; i++)
-   link.click();
-console.log("startTimer started now");
+
+
+
+
+
 const examDuration = 15; // duration of the exam in minutes
 // Check if the end time is stored in session storage
 let endTime = sessionStorage.getItem('endTime');
 
-if (endTime) {
-  // Parse the end time from session storage
-  endTime = new Date(endTime);
-  console.log("end time : ",endTime);
-} else {
-  // Calculate the end time of the exam
-  const now = new Date();
-  endTime = new Date(now.getTime() + examDuration * 60000);
-
-  // Store the end time in session storage
-  sessionStorage.setItem('endTime', endTime);
-}
 
 
+ function startTimer() {
+    // Your function logic goes here
+    console.log("Start Assessment clicked");
+
+      // Calculate the end time of the exam
+      const now = new Date();
+      endTime = new Date(now.getTime() + examDuration * 60000);
+
+      // Store the end time in session storage
+      sessionStorage.setItem('endTime', endTime);
+
+  }
+
+  // Add click event listener to the anchor tag
+  if(document.getElementById("user-link-testing")){
+  document.getElementById("user-link-testing").addEventListener("click", startTimer);
+  }
+ if (endTime) {
+      // Parse the end time from session storage
+      endTime = new Date(endTime);
+    }
 // Update the timer every second
 const timer = setInterval(() => {
   // Calculate the remaining time
@@ -115,25 +127,20 @@ const timer = setInterval(() => {
  // Check if the time is up
  if (remainingTime <= 0) {
    clearInterval(timer);
-   document.getElementById("testRemainingTime").textContent = "Time's up!";
+   document.getElementById("timer").textContent = "Time's up!";
 
    // Automatically submit the exam
+   console.log("before submit the exam");
    document.getElementById("question-form").submit();
-
+    console.log("after submit ");
   } else {
     // Update the timer display
     const minutes = Math.floor(remainingTime / 60000);
     const seconds = Math.floor((remainingTime % 60000) / 1000);
-
-    var element = document.getElementById("testRemainingTime");
-    if (element) {
-        element.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`
-    }
-//    document.getElementById("testRemainingTime").textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    document.getElementById("timer").textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
   }
 }, 1000);
 
-}
 
 
 // Retrieve the user ID from the HTML page

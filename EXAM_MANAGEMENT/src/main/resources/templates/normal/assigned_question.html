@@ -11,9 +11,9 @@
     <h2 align="center">This page is for assigned questions to a particular student</h2>
     <p align="center">Prepare yourself for the upcoming exam! This section contains the questions specifically assigned to you. Take your time, read each question carefully, and provide well-thought-out answers. Remember, practice makes perfect, so give it your best shot!</p>
     <div class= "d-grid gap-2 col-6 mx-auto" align="center">
-      <a id="user-link-testing"  th:href="@{/user/assigned-question(userId=${userId})}" onClick="startTimer()"></a>
+      <a id="user-link-testing"  th:href="@{/user/assigned-question(userId=${userId})}" >Start Assessment</a>
 
-      <button  th:href="@{/user/assigned-question(userId=${userId})}" th:onClick="startTimer()">Start Assessment</button>
+<!--      <button  th:href="@{/user/assigned-question(userId=${userId})}" th:onClick="startTimer()">Start Assessment</button>-->
     </div>
 
   </div>
