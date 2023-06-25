@@ -212,11 +212,6 @@ function updateCheckboxes() {
   });
 }
 
-  function testFunction(){
-console.log("i am calling testFunction");
-}
-
-
-    function openSignupPage() {
-        window.location.href = "/admin/signup";
-    }
+  function clearSessionStorage() {
+    sessionStorage.clear();
+  }
