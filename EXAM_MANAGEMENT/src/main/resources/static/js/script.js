@@ -14,6 +14,7 @@ const toggleSidebar = () => {
 	}
 };
 
+
   function storeSelectedOption(questionId, selectedOption) {
       let selectedOptions = JSON.parse(sessionStorage.getItem("selectedOptions")) || {};
       selectedOptions[questionId] = selectedOption;
@@ -91,7 +92,7 @@ const toggleSidebar = () => {
 
 
 
-const examDuration = 15; // duration of the exam in minutes
+const examDuration = 20; // duration of the exam in minutes
 // Check if the end time is stored in session storage
 let endTime = sessionStorage.getItem('endTime');
 

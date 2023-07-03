@@ -400,7 +400,9 @@ public class AdminController {
         System.out.println("level : " + level);
         System.out.println("setNumber : " + setNumber);
         userQuestionService.assignQuestionsToUser(userId, category, level, setNumber);
-
+        model.addAttribute("category",category);
+        model.addAttribute("level",level);
+        model.addAttribute("setNumber",setNumber);
         User user = userRepository.findById(userId).orElse(null);
         if (user != null) {
             user.setHasAssignedQuestions(true);

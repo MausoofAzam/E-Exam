@@ -165,3 +165,7 @@ input[type="checkbox"] {
   color: #888;
   cursor: not-allowed;
 }
+.scrollable-list{
+max-height: 500px;
+overflow-y:auto;
+}
