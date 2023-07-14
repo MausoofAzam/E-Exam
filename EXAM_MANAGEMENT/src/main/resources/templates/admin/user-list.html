@@ -20,7 +20,7 @@
                                                 size="50" required/>
                         </div>
                     </span>
-                    <span "d-inline-block">
+                    <span class="d-inline-block">
                     <div style="display:inline-block" class="form-group d-inline-block">
                         <select name="optionName" class="form-control d-inline-block">
                             <option value="name"> Name</option>
@@ -32,7 +32,7 @@
                         <button class="btn btn-sm btn-info"  type="submit">
                             <i class="fa-sharp fa-solid fa-magnifying-glass"></i>Search
                         </button>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">Add New Candidate</button>
+<!--                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal">Add New Candidate</button>-->
 
                     </span>
                 </div>
@@ -73,20 +73,7 @@
             <div th:if="${searchResult}">
                 <a class="btn btn-sm btn-info mb-3" href="/admin/show-users">Back</a>
             </div>
-<!--            Pagination starts from Here&ndash;&gt;-->
-            <!--<nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li th:if="${currentPage != 0}"  class="page-item"><a th:href="@{/admin/show-users/(page=${currentPage - 1})}" class="page-link" href="#">Previous</a></li>
 
-                    <li th:classappend="${currentPage == page} ? active" th:each="page : ${#numbers.sequence(0,totalPages-1)}"
-                        class="page-item"><a th:href="@{/admin/show-users(page=${page})}" class="page-link"
-                                                                                              href="#"><span th:text="${page + 1}"></span></a></li>
-
-
-
-                    <li th:if="${currentPage+1 != totalPages}" class="page-item"><a th:href="@{/admin/show-users(page=${currentPage + 1})}" class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>-->
             <div th:if="${totalPages > 1}">
                 <ul class="pagination justify-content-center">
                     <li class="page-item previous-item" th:classappend="${currentPage == 0} ? disabled">
@@ -202,4 +189,4 @@
 </section>
 </body>
 </html>
-<form action="#" th:action="@{/admin/mcq/examsList/{userId}(userId=${user.id})}" method="get">
+<!--<form action="#" th:action="@{/admin/mcq/examsList/{userId}(userId=${user.id})}" method="get">-->
